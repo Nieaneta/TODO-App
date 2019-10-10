@@ -12,6 +12,16 @@ const addTask = () => {
     const li = document.createElement("li");
     list.appendChild(li);
     li.textContent = `Task number ${nr}`;
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.innerText = "Delete";
+    deleteBtn.style.backgroundColor = "grey";
+    deleteBtn.style.fontSize = "10px";
+    li.appendChild(deleteBtn);
+
+    deleteBtn.addEventListener("click", function() {
+        this.parentElement.parentElement.removeChild(this.parentElement);
+    });
 };
 
 addBtn.addEventListener("click", addTask);
@@ -26,5 +36,3 @@ removeBtn.addEventListener("click", function() {
 clearBtn.addEventListener("click", function() {
     list.innerHTML = "";
 });
-
-
